@@ -1,4 +1,12 @@
-## Installing Project
+## Feature of this boilerplate :
+- Redux ( state management )
+- react-router ( authentication routes )
+- Formik ( form managment with antd )
+- Antd v4 ( UI lib )
+- Styled-component ( modifing UI lib )
+- Less ( Theming antd )
+
+## # Installing Project
 
 #### `npx create-react-app auth-react node-sass axios redux redux-thunk react-router styled-components antd js-cookie`
 
@@ -8,7 +16,7 @@ https://medium.com/@svyandun/eslint-airbnb-javascript-style-guide-prettier-vs-co
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## # Available Scripts
 
 In the project directory, you can run:
 
