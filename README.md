@@ -1,24 +1,19 @@
 # Feature of this boilerplate :
-- Redux ( state management )
-- react-router ( authentication routes )
-- Formik ( form managment with antd )
-- Antd v4 ( UI lib )
-- Styled-component ( modifing UI lib )
-- Less ( Theming antd )
+- [Redux](https://react-redux.js.org/introduction/quick-start) (state management)
+- [react-router](https://reactrouter.com/web/guides/quick-start) (public and private routes)
+- [Formik](https://formik.org/docs/overview) (form managment with antd)
+- [Antd v4](https://ant.design/components/overview/) (UI lib)
+- [Styled-component](https://styled-components.com/) (modifing UI lib)
+- Less without `npm run eject` with [react-app-rewire-less](https://github.com/wapgear/react-app-rewire-less) (Theming antd)
+- Eslint, Prettier (JS style Guide from [Airbnb](https://medium.com/@svyandun/eslint-airbnb-javascript-style-guide-prettier-vs-code-ffdad3029044))
 
+## # Start Project
 
+After clone this project, install the package with: 
 
-## # Installing Project
-
-#### `npx create-react-app auth-react node-sass axios redux redux-thunk react-router styled-components antd js-cookie`
-
-JS Style Guide
-https://github.com/airbnb/javascript
-https://medium.com/@svyandun/eslint-airbnb-javascript-style-guide-prettier-vs-code-ffdad3029044
+### `npm install/ yarn install`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
 
 ## # Available Scripts
 
