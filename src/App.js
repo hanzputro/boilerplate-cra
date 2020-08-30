@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Layout } from 'antd';
 import { SHeader, SMain, SFooter } from './components';
-import './App.css';
+import './app.less';
 
 const App = () => {
   return (
