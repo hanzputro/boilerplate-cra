@@ -19,7 +19,7 @@ const SHeader = () => {
     <StyledHeader>
       <Row justify="space-between">
         <Col>
-          <h1>Pakebook</h1>
+          <h1>Boilerplate</h1>
         </Col>
         {userInfo?.token && (
           <Col>
@@ -32,8 +32,10 @@ const SHeader = () => {
 };
 
 const StyledHeader = styled(Header)`
-  background: pink;
-
+  background: blue;
+  h1 {
+    color: white;
+  }
   .auth {
     float: right;
   }

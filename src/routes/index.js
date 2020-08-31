@@ -1,6 +1,7 @@
 import SigninScreen from '../screens/SigninScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
+import StyleguideScreen from '../screens/StyleguideScreen';
 
 export const Routes = [
   {
@@ -10,6 +11,10 @@ export const Routes = [
   {
     path: '/register',
     component: RegisterScreen,
+  },
+  {
+    path: '/styleguide',
+    component: StyleguideScreen,
   },
 ];
 
