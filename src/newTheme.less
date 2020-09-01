@@ -1,8 +1,8 @@
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 
 // -------- Colors -----------
-@primary-color: orange;
-@info-color: @primary-color;
+@primary-color: rgb(184, 90, 207);
+@info-color: blue;
 @success-color: @green-6;
 @processing-color: @blue-6;
 @error-color: @red-5;
@@ -12,20 +12,22 @@
 @white: #fff;
 @black: #000;
 
+// global root
+:root {
+  --primary-color: @primary-color;
+  --info-color: @info-color;
+  --success-color: @success-color;
+  --processing-color: @processing-color;
+  --error-color: @error-color;
+  --highlight-color: @highlight-color;
+  --warning-color: @warning-color;
+  --normal-color: @normal-color;
+}
+
 // Base Scaffolding Variables
 // ---
 
-// Background color for `<body>`
-@body-background: #fff;
-// Base background color for most components
-@component-background: #fff;
-// Popover background color
-@popover-background: @component-background;
-@popover-customize-border-color: @border-color-split;
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji';
-@code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+// text color
 @text-color: fade(@black, 85%);
 @text-color-secondary: fade(@black, 45%);
 @text-color-inverse: @white;
@@ -34,6 +36,19 @@
 @heading-color: fade(@black, 85%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
+
+// Background color for `<body>`
+@body-background: #fff;
+// Base background color for most components
+@component-background: #fff;
+// Popover background color
+@popover-background: @component-background;
+@popover-customize-border-color: @border-color-split;
+
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+@code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';

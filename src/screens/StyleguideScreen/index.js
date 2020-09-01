@@ -8,6 +8,7 @@ function StyleguideScreen(props) {
       <Col span="12">
         <Colors />
         <br />
+        <br />
         <Buttons />
         <br />
         <br />

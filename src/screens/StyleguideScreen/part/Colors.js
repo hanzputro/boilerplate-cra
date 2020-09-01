@@ -1,7 +1,8 @@
 import React from 'react';
-import { Row, Col, Divider, Button, Typography } from 'antd';
+import { Row, Col, Divider, Button, Typography, Space } from 'antd';
+import styled from 'styled-components';
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 function Colors(props) {
   return (
@@ -11,15 +12,61 @@ function Colors(props) {
           COLORS
         </Title>
       </Divider>
-      <Row>
+      <Row align="start" gutter={[14, 14]}>
         <Col>
-          <Button type="primary" shape="circle" style={{ background: 'red' }} />
+          <SButton size="large" style={{ background: 'var(--primary-color)' }}>
+            Primary
+          </SButton>
         </Col>
         <Col>
-          <Text>Primary</Text>
+          <SButton size="large" style={{ background: 'var(--info-color)' }}>
+            Info
+          </SButton>
+        </Col>
+        <Col>
+          <SButton size="large" style={{ background: 'var(--success-color)' }}>
+            Success
+          </SButton>
+        </Col>
+        <Col>
+          <SButton size="large" style={{ background: 'var(--processing-color)' }}>
+            Processing
+          </SButton>
+        </Col>
+        <Col>
+          <SButton size="large" style={{ background: 'var(--error-color)' }}>
+            Error
+          </SButton>
+        </Col>
+        <Col>
+          <SButton size="large" style={{ background: 'var(--highlight-color)' }}>
+            Highlight
+          </SButton>
+        </Col>
+        <Col>
+          <SButton size="large" style={{ background: 'var(--warning-color)' }}>
+            Warning
+          </SButton>
+        </Col>
+        <Col>
+          <SButton size="large" style={{ background: 'var(--normal-color)' }}>
+            Normal
+          </SButton>
         </Col>
       </Row>
     </>
   );
 }
+
+const SButton = styled(Button)`
+  color: white !important;
+  border: 0 !important;
+  :hover,
+  :active,
+  :focus {
+    border: 0 !important;
+    background: transparent;
+  }
+`;
+
 export default Colors;

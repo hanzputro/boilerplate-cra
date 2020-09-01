@@ -6,7 +6,7 @@ const { Title } = Typography;
 
 function ListsOfPost(props) {
   const listData = [];
-  for (let i = 0; i < 23; i++) {
+  for (let i = 0; i < 10; i++) {
     listData.push({
       href: 'https://ant.design',
       title: `ant design part ${i}`,
@@ -39,7 +39,7 @@ function ListsOfPost(props) {
           onChange: (page) => {
             console.log(page);
           },
-          pageSize: 3,
+          pageSize: 1,
         }}
         dataSource={listData}
         footer={
