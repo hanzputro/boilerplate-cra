@@ -6,19 +6,17 @@ function StyleguideScreen(props) {
   return (
     <Row gutter={[24, 24]}>
       <Col span="12">
-        <Colors />
-        <br />
-        <br />
-        <Buttons />
-        <br />
-        <br />
-        <br />
-        <FormComponents />
+        <Space direction="vertical" size={24}>
+          <Colors />
+          <Buttons />
+          <FormComponents />
+        </Space>
       </Col>
       <Col span="12">
-        <Typography />
-        <br />
-        <Lists />
+        <Space direction="vertical" size={24}>
+          <Typography />
+          <Lists />
+        </Space>
       </Col>
       <Col span="24">
         <ListsOfPost />

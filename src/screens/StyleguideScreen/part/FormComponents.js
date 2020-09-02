@@ -16,10 +16,11 @@ import {
   message,
 } from 'antd';
 import * as Yup from 'yup';
-import { signin } from '../../../redux/actions/userActions';
+import { FormItem } from '../../../components';
+// import { signin } from '../../../redux/actions/userActions';
 
 const { TextArea } = Input;
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const optionGroup = [
   { label: 'Apple', value: 'Apple' },
@@ -27,9 +28,11 @@ const optionGroup = [
   { label: 'Orange', value: 'Orange' },
 ];
 
+const optionsSelect = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
+
 function FormComponents(props) {
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <>
@@ -42,24 +45,29 @@ function FormComponents(props) {
         initialValues={{
           inputText: 'eve.holt@reqres.in',
           inputPassword: '',
-          textarea: 'Fill your description',
-          checkboxGroup: ['Apple', 'Pear'],
+          inputTextarea: '',
+          checkboxGroup: [],
           radioGroup: 'Orange',
-          select: [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }],
+          select: [],
           switch: true,
           datepicker: '',
         }}
-        // validationSchema={Yup.object({
-        //   inputText: Yup.string().required('Required'),
-        //   inputPassword: Yup.string().min(3, 'Minimum 3 characters').required('Required'),
-        //   checkboxGroup: Yup.bool(),
-        // })}
+        validationSchema={Yup.object({
+          inputText: Yup.string().required('Required'),
+          inputPassword: Yup.string().min(3, 'Minimum 3 characters').required('Required'),
+          inputTextarea: Yup.string().required('Fill your description'),
+          checkboxGroup: Yup.string().required('Required'),
+          radioGroup: Yup.string(),
+          select: Yup.string().required('Choose the selection'),
+          switch: Yup.bool(),
+          datepicker: Yup.date().required('Required'),
+        })}
         onSubmit={(values, actions) => {
           setLoading(true);
           console.log(values);
           setTimeout(() => {
             // dispatch(signin(values));
-            // actions.setSubmitting(false);
+            actions.setSubmitting(false);
             setLoading(false);
             message.success('Yay! Success');
           }, 2000);
@@ -68,43 +76,63 @@ function FormComponents(props) {
         {(formikProps) => (
           <Form>
             <Row gutter={[24, 24]}>
-              <Col span="12">
+              {/* <Col span="12">
                 <label>Input Text</label>
-                <Input id="inputText" onChange={formikProps.handleChange} />
-                {formikProps.errors.inputText ? <div>{formikProps.errors.inputText}</div> : null}
-              </Col>
-              <Col span="12">
-                <label>Input Password</label>
-                <Input.Password id="inputPassword" onChange={formikProps.handleChange} />
-                {formikProps.errors.inputPassword ? (
-                  <div>{formikProps.errors.inputPassword}</div>
+                <Input
+                  id="inputText"
+                  defaultValue={formikProps.initialValues.inputText}
+                  onChange={formikProps.handleChange}
+                />
+                {formikProps.errors.inputText ? (
+                  <Text type="danger" style={{ fontSize: '12px' }}>
+                    {formikProps.errors.inputText}
+                  </Text>
                 ) : null}
-              </Col>
-              <Col span="12">
+              </Col> */}
+              <FormItem label="Input Text" name="inputText" span={12} required>
+                <Input
+                  name="inputText"
+                  defaultValue={formikProps.initialValues.inputText}
+                  onChange={formikProps.handleChange}
+                />
+              </FormItem>
+
+              <FormItem label="Input Password" name="inputPassword" span={12} required>
+                <Input.Password
+                  name="inputPassword"
+                  defaultValue={formikProps.initialValues.inputPassword}
+                  onChange={formikProps.handleChange}
+                />
+              </FormItem>
+
+              <FormItem label="Textarea" name="inputTextarea" span={12} required>
                 <TextArea
-                  name="textarea"
-                  placeholder={formikProps.initialValues.textarea}
+                  name="inputTextarea"
+                  placeholder={formikProps.initialValues.inputTextarea}
                   autoSize={{ minRows: 3, maxRows: 5 }}
                   onChange={formikProps.handleChange}
                 />
-              </Col>
-              <Col span="12">
+              </FormItem>
+
+              <FormItem name="checkboxGroup" span={12} required>
                 <Checkbox.Group
                   name="checkboxGroup"
                   options={optionGroup}
                   defaultValue={formikProps.initialValues.checkboxGroup}
                   onChange={(e) => formikProps.setFieldValue('checkboxGroup', e)}
                 />
-              </Col>
-              <Col span="12">
+              </FormItem>
+
+              <FormItem name="checkboxGroup" span={12}>
                 <Radio.Group
                   name="radioGroup"
                   options={optionGroup}
                   defaultValue={formikProps.initialValues.radioGroup}
                   onChange={(e) => formikProps.setFieldValue('radioGroup', e)}
                 />
-              </Col>
-              <Col span="12">
+              </FormItem>
+
+              <FormItem name="switch" span={12}>
                 <Switch
                   name="switch"
                   checkedChildren="True"
@@ -112,24 +140,27 @@ function FormComponents(props) {
                   defaultChecked={formikProps.initialValues.switch}
                   onChange={(e) => formikProps.setFieldValue('switch', e)}
                 />
-              </Col>
-              <Col span="12">
+              </FormItem>
+
+              <FormItem label="Select" name="select" span={12} required>
                 <Select
                   name="select"
-                  defaultValue={['gold']}
-                  options={formikProps.initialValues.select}
+                  defaultValue={formikProps.initialValues.select}
+                  options={optionsSelect}
                   onChange={(e) => formikProps.setFieldValue('select', e)}
                   style={{ width: '100%' }}
                 />
-              </Col>
-              <Col span="12">
+              </FormItem>
+
+              <FormItem label="Datepicker" name="datepicker" span={12} required>
                 <DatePicker
                   name="datepicker"
                   showTime
                   onOk={(e) => formikProps.setFieldValue('datepicker', e)}
                   style={{ width: '100%' }}
                 />
-              </Col>
+              </FormItem>
+
               <Col span="24">
                 <Button type="primary" htmlType="submit" loading={loading}>
                   Submit
