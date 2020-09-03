@@ -64,15 +64,7 @@ const HomeScreen = () => {
           </Form>
         )}
       </Formik>
-      {loading ? (
-        <Space align="start" size={14} style={{ height: 400 }}>
-          <Skeleton.Avatar size={40} shape="circle" active />
-          <Space direction="vertical" size={14}>
-            <Skeleton.Input active style={{ width: 500 }} />
-            <Skeleton.Input active style={{ width: 500 }} />
-          </Space>
-        </Space>
-      ) : error ? (
+      {error ? (
         <div>{error}</div>
       ) : (
         <List
@@ -81,17 +73,19 @@ const HomeScreen = () => {
           dataSource={products?.data}
           renderItem={(item) => (
             <List.Item>
-              <List.Item.Meta
-                avatar={
-                  <Image
-                    width={50}
-                    src={item.avatar}
-                    placeholder={<Skeleton.Avatar size={40} shape="circle" active />}
-                  />
-                }
-                title={<Title level={2}>{`${item.first_name} ${item.last_name}`.concat()}</Title>}
-                description={item.email}
-              />
+              <Skeleton avatar title={false} loading={loading} active>
+                <List.Item.Meta
+                  avatar={
+                    <Image
+                      width={50}
+                      src={item.avatar}
+                      placeholder={<Skeleton.Avatar size={40} shape="circle" active />}
+                    />
+                  }
+                  title={<Title level={2}>{`${item.first_name} ${item.last_name}`.concat()}</Title>}
+                  description={item.email}
+                />
+              </Skeleton>
             </List.Item>
           )}
           pagination={{
