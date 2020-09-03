@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import { Row, Col, Input, Button, Checkbox, Space } from 'antd';
 import * as Yup from 'yup';
-import { signin } from '../redux/actions/userActions';
+import { signin } from 'redux/actions/userActions';
 
 function SigninScreen(props) {
   const dispatch = useDispatch();

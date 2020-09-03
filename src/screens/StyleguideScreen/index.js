@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Space } from 'antd';
 import { Colors, Typography, Buttons, Lists, ListsOfPost, FormComponents } from './part';
 
-function StyleguideScreen(props) {
+const StyleguideScreen = () => {
   return (
     <Row gutter={[24, 24]}>
       <Col span="12">
@@ -23,5 +23,6 @@ function StyleguideScreen(props) {
       </Col>
     </Row>
   );
-}
+};
+
 export default StyleguideScreen;

@@ -1,7 +1,7 @@
-import SigninScreen from '../screens/SigninScreen';
-import RegisterScreen from '../screens/RegisterScreen';
-import HomeScreen from '../screens/HomeScreen';
-import StyleguideScreen from '../screens/StyleguideScreen';
+import SigninScreen from 'screens/SigninScreen';
+import RegisterScreen from 'screens/RegisterScreen';
+import HomeScreen from 'screens/HomeScreen';
+import StyleguideScreen from 'screens/StyleguideScreen';
 
 export const Routes = [
   {

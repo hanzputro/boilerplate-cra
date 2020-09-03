@@ -28,8 +28,7 @@ export const signin = ({ username, password, remember }) => async (dispatch) => 
       type: USER_SIGNIN_SUCCESS,
       payload: data,
     });
-    // cookie must have expired date
-    if (remember) Cookie.set('userInfo', JSON.stringify(data));
+    if (remember) Cookie.set('userInfo', JSON.stringify(data), { expires: 1 });
   } catch (error) {
     dispatch({
       type: USER_SIGNIN_FAIL,

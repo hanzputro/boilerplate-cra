@@ -27,6 +27,7 @@ const SLabel = styled.label`
 `;
 
 const SText = styled(Text)`
+  display: block;
   font-size: 12px;
 `;
 

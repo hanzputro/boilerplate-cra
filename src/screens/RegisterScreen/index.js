@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../redux/actions/userActions';
+import { register } from 'redux/actions/userActions';
 
 function RegisterScreen(props) {
   console.log(props);
