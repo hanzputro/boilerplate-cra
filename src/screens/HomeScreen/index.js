@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Input, Select, List, Image, Skeleton, Space, Typography } from 'antd';
+import { Row, Input, Select, Typography } from 'antd';
 import { FormItem } from 'components';
 import { listProducts } from 'redux/actions/productActions';
+import Products from './products';
 
 const { Title } = Typography;
 const optionFilter = [
@@ -27,7 +28,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      {<h2>Status</h2>}
+      {<Title level={2}>Status</Title>}
       <Formik
         initialValues={{
           searchKeyword: '',
@@ -64,40 +65,13 @@ const HomeScreen = () => {
           </Form>
         )}
       </Formik>
-      {error ? (
-        <div>{error}</div>
-      ) : (
-        <List
-          itemLayout="horizontal"
-          loading={loading}
-          dataSource={products?.data}
-          renderItem={(item) => (
-            <List.Item>
-              <Skeleton avatar title={false} loading={loading} active>
-                <List.Item.Meta
-                  avatar={
-                    <Image
-                      width={50}
-                      src={item.avatar}
-                      placeholder={<Skeleton.Avatar size={40} shape="circle" active />}
-                    />
-                  }
-                  title={<Title level={2}>{`${item.first_name} ${item.last_name}`.concat()}</Title>}
-                  description={item.email}
-                />
-              </Skeleton>
-            </List.Item>
-          )}
-          pagination={{
-            onChange: (page) => {
-              console.log(page);
-              setPageNumber(page);
-            },
-            defaultCurrent: pageNumber,
-            total: products?.total,
-          }}
-        />
-      )}
+      <Products
+        loading={!!loading}
+        data={products}
+        page={pageNumber}
+        setPage={setPageNumber}
+        error={error}
+      />
     </>
   );
 };
