@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Formik, Form } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Input, Select, Typography } from 'antd';
@@ -14,17 +14,34 @@ const optionFilter = [
 ];
 
 const HomeScreen = () => {
-  const [searchKeyword, setSearchKeyword] = useState(''); // setSort must have parameter sort from API
-  const [sortOrder, setSortOrder] = useState(''); // setSort must have parameter sort from API
+  const productList = useSelector((state) => state?.productList);
+  const { products, loading = true, error } = productList;
+  const dispatch = useDispatch();
+
+  // const [searchKeyword, setSearchKeyword] = useState(''); // setSort must have parameter sort from API
+  // const [sortOrder, setSortOrder] = useState(''); // setSort must have parameter sort from API
+  const [productData, setProductData] = useState(products);
   const [pageNumber, setPageNumber] = useState(1);
 
-  const productList = useSelector((state) => state?.productList);
-  const { products, loading, error } = productList;
-  const dispatch = useDispatch();
+  // function usePrevious(value) {
+  //   const ref = useRef();
+  //   useEffect(() => {
+  //     ref.current = value;
+  //   });
+  //   return ref.current;
+  // }
 
   useEffect(() => {
     dispatch(listProducts(pageNumber));
+    // if (productRef.current) return console.log(productRef.current);
   }, [pageNumber]);
+
+  // function checkObj(value) {
+  //   if (typeof value == 'object' && value instanceof Object && !(value instanceof Array))
+  //     return value;
+  // }
+
+  // console.log(checkObj(products));
 
   return (
     <>
@@ -66,7 +83,7 @@ const HomeScreen = () => {
         )}
       </Formik>
       <Products
-        loading={!!loading}
+        loading={loading}
         data={products}
         page={pageNumber}
         setPage={setPageNumber}

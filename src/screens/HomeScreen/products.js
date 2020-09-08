@@ -1,25 +1,27 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { List, Image, Skeleton } from 'antd';
 
-const Products = memo(({ loading, data, page, setPage, error }) => {
-  // const [loadingData, setLoadingData] = useState(loading);
+const Products = ({ loading, data, page, setPage, error }) => {
+  const [loadingData, setLoadingData] = useState(loading);
+  // const [productData, setProductData] = useState(data);
 
-  // useEffect(() => {
-  //   if (loadingData) setTimeout(() => setLoadingData(loadingData), 3000);
-  // }, [loadingData]);
+  useEffect(() => {
+    if (loadingData) setTimeout(() => setLoadingData(false), 1000);
+    // setProductData(data);
+  }, [loadingData]);
 
-  // console.log(loading);
+  // console.log(productData);
 
   return error ? (
     <div>{error}</div>
   ) : (
     <List
       itemLayout="horizontal"
-      loading={loading}
+      // loading={loading}
       dataSource={data?.data}
       renderItem={(item) => (
         <List.Item>
-          <Skeleton avatar title={false} loading={loading} active>
+          <Skeleton avatar title={false} loading={loadingData} active>
             <List.Item.Meta
               avatar={
                 <Image
@@ -37,6 +39,7 @@ const Products = memo(({ loading, data, page, setPage, error }) => {
       pagination={{
         onChange: (page) => {
           console.log(page);
+          setLoadingData(true);
           setPage(page);
         },
         defaultCurrent: page,
@@ -44,6 +47,6 @@ const Products = memo(({ loading, data, page, setPage, error }) => {
       }}
     />
   );
-});
+};
 
 export default Products;
