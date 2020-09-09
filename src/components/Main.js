@@ -7,7 +7,7 @@ import { Routes, PrivateRoutes } from '../routes';
 
 const { Content } = Layout;
 
-const SMain = () => {
+const CMain = () => {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
@@ -28,7 +28,7 @@ const SMain = () => {
     );
 
   return (
-    <StyledMain>
+    <Content className="main">
       <Switch>
         {Routes?.map((route, idx) => {
           return (
@@ -42,13 +42,8 @@ const SMain = () => {
         })}
         <PrivateRoute isLoggedIn={!!userInfo} />
       </Switch>
-    </StyledMain>
+    </Content>
   );
 };
 
-const StyledMain = styled(Content)`
-  background: white;
-  padding: 20px;
-`;
-
-export default SMain;
+export default CMain;

@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Layout, Row, Col, Button } from 'antd';
+import React from 'react';
+import { Layout } from 'antd';
 
 const { Footer } = Layout;
 
-const SFooter = () => {
-  return <StyledFooter>© All Right Reserved</StyledFooter>;
+const CFooter = () => {
+  return <Footer className="footer">© All Right Reserved</Footer>;
 };
-
-const StyledFooter = styled(Footer)`
-  padding: 10px 15px;
-  text-align: center;
-`;
-
-export default SFooter;
+export default CFooter;

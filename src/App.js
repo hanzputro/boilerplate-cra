@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Layout } from 'antd';
-import { SHeader, SMain, SFooter } from './components';
-import './app.less';
+import { Header, Main, Footer } from './components';
+import './styles/index.less';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <SHeader />
-        <SMain />
-        <SFooter />
+      <Layout style={{ minHeight: '100%' }}>
+        <Header />
+        <Main className="main" />
+        <Footer />
       </Layout>
     </BrowserRouter>
   );

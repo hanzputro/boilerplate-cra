@@ -20,28 +20,17 @@ const HomeScreen = () => {
 
   // const [searchKeyword, setSearchKeyword] = useState(''); // setSort must have parameter sort from API
   // const [sortOrder, setSortOrder] = useState(''); // setSort must have parameter sort from API
-  const [productData, setProductData] = useState(products);
   const [pageNumber, setPageNumber] = useState(1);
-
-  // function usePrevious(value) {
-  //   const ref = useRef();
-  //   useEffect(() => {
-  //     ref.current = value;
-  //   });
-  //   return ref.current;
-  // }
 
   useEffect(() => {
     dispatch(listProducts(pageNumber));
-    // if (productRef.current) return console.log(productRef.current);
   }, [pageNumber]);
 
-  // function checkObj(value) {
+  // check isArray
+  // function isArray(value) {
   //   if (typeof value == 'object' && value instanceof Object && !(value instanceof Array))
   //     return value;
   // }
-
-  // console.log(checkObj(products));
 
   return (
     <>

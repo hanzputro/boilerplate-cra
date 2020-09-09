@@ -1,22 +1,28 @@
-# Feature of this boilerplate :
+# FEATURES
 
 - [Redux](https://react-redux.js.org/introduction/quick-start) (state management)
 - [react-router](https://reactrouter.com/web/guides/quick-start) (public and private routes)
 - [Formik](https://formik.org/docs/overview) (form managment with antd)
 - [Antd v4](https://ant.design/components/overview/) (UI lib)
 - [Styled-component](https://styled-components.com/) (modify UI lib)
-- Less without `npm run eject` with [react-app-rewired](https://www.aleksandrhovhannisyan.com/blog/dev/how-to-set-up-react-typescript-ant-design-less-css-modules-and-eslint/) (customize antd theme)
+- [Less](http://lesscss.org/) without `npm run eject` with [react-app-rewired](https://www.aleksandrhovhannisyan.com/blog/dev/how-to-set-up-react-typescript-ant-design-less-css-modules-and-eslint/) (customize antd theme)
 - Eslint, Prettier (JS style Guide from [Airbnb](https://medium.com/@svyandun/eslint-airbnb-javascript-style-guide-prettier-vs-code-ffdad3029044))
 
-## # Start Project
+## # START PROJECT
 
 After clone this project, install the package with:
 
 ### `npm install / yarn install`
 
+## # RULES OF STYLE
+
+- standart style using less
+- styling component with prop using styled-component
+- component import from antd
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## # Available Scripts
+## # AVAILABLE SCRIPTS
 
 In the project directory, you can run:
 
