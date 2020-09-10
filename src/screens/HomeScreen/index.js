@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { Row, Input, Select, Typography } from 'antd';
 import { FormItem } from 'components';
-import { listProducts } from 'redux/actions/productActions';
-import Products from './products';
+import { listProfiles } from 'redux/actions/profileActions';
+import Profiles from './Profiles';
 
 const { Title } = Typography;
 const optionFilter = [
@@ -14,17 +14,21 @@ const optionFilter = [
 ];
 
 const HomeScreen = () => {
-  const productList = useSelector((state) => state?.productList);
-  const { products, loading = true, error } = productList;
+  const profileList = useSelector((state) => state?.profileList);
+  const { profiles, loading = true, error } = profileList;
   const dispatch = useDispatch();
 
-  // const [searchKeyword, setSearchKeyword] = useState(''); // setSort must have parameter sort from API
-  // const [sortOrder, setSortOrder] = useState(''); // setSort must have parameter sort from API
+  // const [searchKeyword, setSearchKeyword] = useState(''); // must have parameter search keyword from API
+  // const [sortOrder, setSortOrder] = useState(''); // must have parameter sort order from API
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    dispatch(listProducts(pageNumber));
+    dispatch(listProfiles(pageNumber));
   }, [pageNumber]);
+
+  // useRef
+  // const profilesRef = useRef();
+  // profilesRef.current = profiles;
 
   // check isArray
   // function isArray(value) {
@@ -71,9 +75,9 @@ const HomeScreen = () => {
           </Form>
         )}
       </Formik>
-      <Products
+      <Profiles
         loading={loading}
-        data={products}
+        data={profiles}
         page={pageNumber}
         setPage={setPageNumber}
         error={error}

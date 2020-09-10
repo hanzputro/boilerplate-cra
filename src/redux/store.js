@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
 
 import {
-  productListReducer,
-  productDetailsReducer,
-  productSaveReducer,
-  productDeleteReducer,
-  productReviewSaveReducer,
-} from './reducers/productReducers';
+  profileListReducer,
+  profileDetailsReducer,
+  profileSaveReducer,
+  profileDeleteReducer,
+  profileReviewSaveReducer,
+} from './reducers/profileReducers';
 // import { cartReducer } from "./reducers/cartReducers";
 import { userSigninReducer, userRegisterReducer, userUpdateReducer } from './reducers/userReducers';
 // import {
@@ -20,7 +20,7 @@ import { userSigninReducer, userRegisterReducer, userUpdateReducer } from './red
 //  orderDeleteReducer,
 // } from "./reducers/orderReducers";
 
-const cartItems = Cookie.getJSON('cartItems') || [];
+// const cartItems = Cookie.getJSON('cartItems') || [];
 const userInfo = Cookie.getJSON('userInfo') || null;
 
 // export const InitialProps = {
@@ -43,10 +43,10 @@ const userInfo = Cookie.getJSON('userInfo') || null;
 //       token: string,
 //     },
 //   },
-//   productList: {
+//   profileList: {
 //     loading: boolean,
 //     error: boolean,
-//     products: object,
+//     profiles: object,
 //   },
 // };
 
@@ -54,22 +54,22 @@ const initialState = {
   //  cart: { cartItems, shipping: {}, payment: {} },
   userSignin: { userInfo },
   userRegister: { userInfo },
-  productList: {},
+  profileList: {},
 };
 
 const reducer = combineReducers({
-  productList: productListReducer,
-  productDetails: productDetailsReducer,
+  profileList: profileListReducer,
+  profileDetails: profileDetailsReducer,
   //  cart: cartReducer,
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
-  productSave: productSaveReducer,
-  productDelete: productDeleteReducer,
-  productReviewSave: productReviewSaveReducer,
+  userUpdate: userUpdateReducer,
+  profileSave: profileSaveReducer,
+  profileDelete: profileDeleteReducer,
+  profileReviewSave: profileReviewSaveReducer,
   //  orderCreate: orderCreateReducer,
   //  orderDetails: orderDetailsReducer,
   //  orderPay: orderPayReducer,
-  userUpdate: userUpdateReducer,
   //  myOrderList: myOrderListReducer,
   //  orderList: orderListReducer,
   //  orderDelete: orderDeleteReducer,
